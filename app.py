@@ -26,7 +26,7 @@ except Exception as error:
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
 	"Choose a page:",
-	["Home", "Seasonal Explorer", "Weather Analysis"]
+	["Home", "Seasonal Explorer", "Weather Analysis", "Select a date"]
 )
 
 if page == "Home":
@@ -59,6 +59,72 @@ elif page == "Seasonal Explorer":
 	st.write("Environmental indicators:")
 	st.write(selected["environmental_signs"])
 	st.caption(f"Source: {selected['source']}")
+
+elif page == "Select a date":
+	st.header("Select a date")
+	st.write("Choose a date range to explore the weather observations in that period.")
+
+	available_start = weather["date"].min().date()
+	available_end = weather["date"].max().date()
+	selected_dates = st.date_input(
+		"Choose a date range:",
+		value=(available_start, available_end),
+		min_value=available_start,
+		max_value=available_end,
+	)
+
+	if not isinstance(selected_dates, tuple) or len(selected_dates) != 2:
+		st.info("Select both a start date and an end date to view the analysis.")
+		st.stop()
+
+	start_date, end_date = selected_dates
+	selected_weather = weather[
+		weather["date"].between(pd.Timestamp(start_date), pd.Timestamp(end_date))
+	]
+	if selected_weather.empty:
+		st.warning("No weather observations were found in that date range.")
+		st.stop()
+
+	st.caption(
+		f"Showing observations from {start_date:%d %b %Y} "
+		f"to {end_date:%d %b %Y}."
+	)
+
+	st.subheader("Selected Period Summary")
+	col1, col2, col3, col4, col5 = st.columns(5)
+	col1.metric("Days", len(selected_weather))
+	col2.metric("Average Maximum Temperature", f"{selected_weather['max_temp'].mean():.1f} °C")
+	col3.metric("Average Minimum Temperature", f"{selected_weather['min_temp'].mean():.1f} °C")
+	col4.metric("Total Rainfall", f"{selected_weather['rainfall'].sum():.1f} mm")
+	col5.metric("Rainy Days", int((selected_weather["rainfall"] > 0).sum()))
+
+	selected_season = st.selectbox(
+		"Choose a season:",
+		sorted(selected_weather["season"].unique()),
+	)
+	statistics = calculate_season_statistics(selected_weather, selected_season)
+	st.subheader(f"{selected_season} Summary")
+	col1, col2, col3, col4 = st.columns(4)
+	col1.metric("Average Maximum Temperature", f"{statistics['average_max_temp']:.1f} °C")
+	col2.metric("Average Minimum Temperature", f"{statistics['average_min_temp']:.1f} °C")
+	col3.metric("Total Rainfall", f"{statistics['total_rainfall']:.1f} mm")
+	col4.metric("Rainy Days", int(statistics["rainy_days"]))
+
+	selected_data = selected_weather[selected_weather["season"] == selected_season]
+	st.subheader("Daily Maximum Temperature")
+	fig, ax = plt.subplots()
+	ax.plot(selected_data["date"], selected_data["max_temp"])
+	ax.set_xlabel("Date")
+	ax.set_ylabel("Maximum Temperature (°C)")
+	ax.set_title(f"{selected_season} Maximum Temperature")
+	fig.autofmt_xdate(rotation=45)
+	fig.tight_layout()
+	st.pyplot(fig)
+	plt.close(fig)
+
+	st.subheader("Comparison Across Seasons in Selected Period")
+	summary = seasonal_summary(selected_weather)
+	st.dataframe(summary, use_container_width=True)
 
 elif page == "Weather Analysis":
 	st.header("📊 Weather Analysis")
