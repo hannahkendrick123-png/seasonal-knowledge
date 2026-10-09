@@ -45,6 +45,18 @@ if page == "Home":
 		"This interactive application explores published Indigenous "
 		"seasonal information and investigates associated weather observations."
 	)
+	st.image(
+		"https://upload.wikimedia.org/wikipedia/commons/b/bc/Noongar1.jpg"
+		"?utm_source=en.wikipedia.org&utm_campaign=imageinfo"
+		"&utm_content=thumbnail_unscaled",
+		caption="Noongar groups of the Southwest of Western Australia",
+		width=500,
+	)
+	st.markdown(
+		"Map by [John D. Croft](https://commons.wikimedia.org/wiki/"
+		"File:Noongar1.jpg), via Wikimedia Commons, licensed under "
+		"[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)."
+	)
 	st.subheader("What can you do?")
 	st.write(
 		"Use the navigation menu to explore seasonal information, analyse "
