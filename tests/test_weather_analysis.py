@@ -8,7 +8,7 @@ APP_FILE = Path(__file__).resolve().parents[1] / "app.py"
 
 def open_weather_analysis():
 	app = AppTest.from_file(str(APP_FILE)).run()
-	app.sidebar.radio[0].set_value("📊 Weather Analysis").run()
+	app.sidebar.radio[0].set_value("🌦️ Weather").run()
 	return app
 
 
@@ -17,7 +17,7 @@ def test_analysis_subpage_shows_selected_season_summary():
 
 	assert not app.exception
 	assert [radio.value for radio in app.sidebar.radio] == [
-		"📊 Weather Analysis",
+		"🌦️ Weather",
 		"Analysis",
 	]
 	assert any(header.value == "Birak Summary" for header in app.subheader)

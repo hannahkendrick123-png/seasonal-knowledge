@@ -26,7 +26,7 @@ except Exception as error:
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
 	"Choose a page:",
-	["🏠 Home", "🌼 Seasonal Overview", "📊 Weather Analysis", "📅 Select a Date"]
+	["🏠 Home", "🌼 Seasonal Overview", "🌦️ Weather", "📅 Select a Date"]
 )
 
 if page == "🏠 Home":
@@ -269,7 +269,7 @@ elif page == "📅 Select a Date":
 	summary = seasonal_summary(selected_weather)
 	st.dataframe(summary, use_container_width=True)
 
-elif page == "📊 Weather Analysis":
+elif page == "🌦️ Weather":
 	st.markdown(
 		"""
 		<style>
@@ -280,9 +280,9 @@ elif page == "📊 Weather Analysis":
 		""",
 		unsafe_allow_html=True,
 	)
-	st.header("📊 Weather Analysis")
+	st.header("🌦️ Weather")
 	weather_view = st.sidebar.radio(
-		"Weather Analysis",
+		"Weather pages",
 		["Analysis", "Comparison"],
 		key="weather_analysis_view",
 	)
