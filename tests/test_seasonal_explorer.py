@@ -21,9 +21,19 @@ def test_birak_displays_image_with_attribution():
 	assert any("CC BY 2.5 AU" in element.value for element in app.markdown)
 
 
-def test_other_seasons_do_not_display_birak_image():
+def test_bunuru_displays_image_with_attribution():
 	app = open_seasonal_explorer()
 	app.selectbox[0].set_value("Bunuru").run()
+
+	assert not app.exception
+	assert len(app.get("image")) == 1
+	assert any("Mark Marathon" in element.value for element in app.markdown)
+	assert any("CC BY-SA 4.0" in element.value for element in app.markdown)
+
+
+def test_other_seasons_do_not_display_birak_image():
+	app = open_seasonal_explorer()
+	app.selectbox[0].set_value("Djeran").run()
 
 	assert not app.exception
 	assert len(app.get("image")) == 0

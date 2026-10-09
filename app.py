@@ -91,6 +91,19 @@ elif page == "Seasonal Explorer":
 			"licensed under [CC BY 2.5 AU]"
 			"(https://creativecommons.org/licenses/by/2.5/au/deed.en)."
 		)
+	elif selected_season == "Bunuru":
+		st.image(
+			"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/"
+			"Corymbia_aparrerinja_blossom.jpg/1280px-Corymbia_aparrerinja_blossom.jpg"
+			"?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+			caption="Corymbia aparrerinja blossom",
+		)
+		st.markdown(
+			"Image by [Mark Marathon](https://commons.wikimedia.org/wiki/"
+			"File:Corymbia_aparrerinja_blossom.jpg), via Wikimedia Commons, "
+			"licensed under [CC BY-SA 4.0]"
+			"(https://creativecommons.org/licenses/by-sa/4.0/)."
+		)
 	st.caption(f"Source: {selected['source']}")
 
 elif page == "Select a date":
