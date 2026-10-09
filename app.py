@@ -71,12 +71,12 @@ if page == "🏠 Home":
 			st.write(
 				"The Noongar region covers the entire south-west corner of "
 				"Western Australia, from just north of Jurien bay, across to "
-				"Moora inland all the way down to the southern coast between "
+				"Moora inland and all the way down to the southern coast between "
 				"Bremer Bay and Esperance. The region encompasses 14 distinct "
-				"language groups, the Perth Area being the Whadjuk people. The "
-				"Noongar people follow a six season calendar which is influenced "
-				"by not just weather patterns but also plant cycles and animal "
-				"behaviour."
+				"language groups, the Perth Area being the Whadjuk group. The "
+				"Noongar people follow a yearly calendar with six distinct "
+				"seasons which are influenced by not only weather patterns but "
+				"also plant cycles and animal behaviour."
 			)
 	st.subheader("What can you do?")
 	st.write(

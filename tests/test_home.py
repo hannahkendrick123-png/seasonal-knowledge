@@ -13,7 +13,8 @@ def test_home_displays_noongar_map_with_attribution():
 	assert len(app.get("image")) == 1
 	assert any(header.value == "The Noongar People" for header in app.subheader)
 	assert any(
-		"The Noongar region covers the entire south-west corner of Western Australia"
+		"the Perth Area being the Whadjuk group. The Noongar people follow a yearly "
+		"calendar with six distinct seasons"
 		in element.value
 		for element in app.markdown
 	)
