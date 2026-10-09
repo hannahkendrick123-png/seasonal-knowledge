@@ -36,6 +36,12 @@ if page == "🏠 Home":
 		.stApp {
 			background-color: #a4baa6;
 		}
+		.st-key-noongar-info-panel {
+			background-color: #ffffff;
+			border-radius: 0.5rem;
+			color: #1f2933;
+			padding: 1.25rem;
+		}
 		</style>
 		""",
 		unsafe_allow_html=True,
@@ -45,18 +51,33 @@ if page == "🏠 Home":
 		"This interactive application explores published Indigenous "
 		"seasonal information and investigates associated weather observations."
 	)
-	st.image(
-		"https://upload.wikimedia.org/wikipedia/commons/b/bc/Noongar1.jpg"
-		"?utm_source=en.wikipedia.org&utm_campaign=imageinfo"
-		"&utm_content=thumbnail_unscaled",
-		caption="Noongar groups of the Southwest of Western Australia",
-		width=500,
-	)
-	st.markdown(
-		"Map by [John D. Croft](https://commons.wikimedia.org/wiki/"
-		"File:Noongar1.jpg), via Wikimedia Commons, licensed under "
-		"[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)."
-	)
+	st.subheader("The Noongar People")
+	map_column, text_column = st.columns(2)
+	with map_column:
+		st.image(
+			"https://upload.wikimedia.org/wikipedia/commons/b/bc/Noongar1.jpg"
+			"?utm_source=en.wikipedia.org&utm_campaign=imageinfo"
+			"&utm_content=thumbnail_unscaled",
+			caption="Noongar groups of the Southwest of Western Australia",
+			width=500,
+		)
+		st.markdown(
+			"Map by [John D. Croft](https://commons.wikimedia.org/wiki/"
+			"File:Noongar1.jpg), via Wikimedia Commons, licensed under "
+			"[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)."
+		)
+	with text_column:
+		with st.container(key="noongar-info-panel"):
+			st.write(
+				"The Noongar region covers the entire south-west corner of "
+				"Western Australia, from just north of Jurien bay, across to "
+				"Moora inland all the way down to the southern coast between "
+				"Bremer Bay and Esperance. The region encompasses 14 distinct "
+				"language groups, the Perth Area being the Whadjuk people. The "
+				"Noongar people follow a six season calendar which is influenced "
+				"by not just weather patterns but also plant cycles and animal "
+				"behaviour."
+			)
 	st.subheader("What can you do?")
 	st.write(
 		"Use the navigation menu to explore seasonal information, analyse "
