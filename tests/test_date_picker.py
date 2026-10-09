@@ -9,7 +9,7 @@ APP_FILE = Path(__file__).resolve().parents[1] / "app.py"
 
 def open_date_picker():
 	app = AppTest.from_file(str(APP_FILE)).run()
-	app.sidebar.radio[0].set_value("Select a Date").run()
+	app.sidebar.radio[0].set_value("📅 Select a Date").run()
 	return app
 
 
@@ -17,7 +17,7 @@ def test_select_a_date_page_is_available():
 	app = open_date_picker()
 
 	assert not app.exception
-	assert any(header.value == "Select a Date" for header in app.header)
+	assert any(header.value == "📅 Select a Date" for header in app.header)
 	assert len(app.date_input) == 1
 
 

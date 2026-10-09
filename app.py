@@ -26,7 +26,7 @@ except Exception as error:
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
 	"Choose a page:",
-	["Home", "Seasonal Overview", "Weather Analysis", "Select a Date"]
+	["Home", "Seasonal Overview", "Weather Analysis", "📅 Select a Date"]
 )
 
 if page == "Home":
@@ -171,7 +171,7 @@ elif page == "Seasonal Overview":
 		)
 	st.caption(f"Source: {selected['source']}")
 
-elif page == "Select a Date":
+elif page == "📅 Select a Date":
 	st.markdown(
 		"""
 		<style>
@@ -182,7 +182,7 @@ elif page == "Select a Date":
 		""",
 		unsafe_allow_html=True,
 	)
-	st.header("Select a Date")
+	st.header("📅 Select a Date")
 	st.write("Choose a date range to explore the weather observations in that period.")
 
 	available_start = weather["date"].min().date()
