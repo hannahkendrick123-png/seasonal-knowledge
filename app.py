@@ -78,6 +78,19 @@ elif page == "Seasonal Explorer":
 	st.write(selected["period"])
 	st.write("Environmental indicators:")
 	st.write(selected["environmental_signs"])
+	if selected_season == "Birak":
+		st.image(
+			"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/"
+			"Christmas_tree_02_gnangarra.jpg/1920px-Christmas_tree_02_gnangarra.jpg"
+			"?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+			caption="Western Australian Christmas tree (Nuytsia floribunda)",
+		)
+		st.markdown(
+			"Image by [Gnangarra](https://commons.wikimedia.org/wiki/"
+			"File:Christmas_tree_02_gnangarra.jpg), via Wikimedia Commons, "
+			"licensed under [CC BY 2.5 AU]"
+			"(https://creativecommons.org/licenses/by/2.5/au/deed.en)."
+		)
 	st.caption(f"Source: {selected['source']}")
 
 elif page == "Select a date":
