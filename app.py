@@ -26,10 +26,10 @@ except Exception as error:
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
 	"Choose a page:",
-	["Home", "Seasonal Overview", "Weather Analysis", "📅 Select a Date"]
+	["🏠 Home", "🌼 Seasonal Overview", "📊 Weather Analysis", "📅 Select a Date"]
 )
 
-if page == "Home":
+if page == "🏠 Home":
 	st.markdown(
 		"""
 		<style>
@@ -70,7 +70,7 @@ if page == "Home":
 	st.write(f"Number of weather records: {len(weather)}")
 	st.write(f"Number of seasonal categories: {weather['season'].nunique()}")
 
-elif page == "Seasonal Overview":
+elif page == "🌼 Seasonal Overview":
 	st.markdown(
 		"""
 		<style>
@@ -247,7 +247,7 @@ elif page == "📅 Select a Date":
 	summary = seasonal_summary(selected_weather)
 	st.dataframe(summary, use_container_width=True)
 
-elif page == "Weather Analysis":
+elif page == "📊 Weather Analysis":
 	st.markdown(
 		"""
 		<style>

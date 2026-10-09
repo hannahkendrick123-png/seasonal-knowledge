@@ -8,7 +8,7 @@ APP_FILE = Path(__file__).resolve().parents[1] / "app.py"
 
 def open_seasonal_explorer():
 	app = AppTest.from_file(str(APP_FILE)).run()
-	app.sidebar.radio[0].set_value("Seasonal Overview").run()
+	app.sidebar.radio[0].set_value("🌼 Seasonal Overview").run()
 	return app
 
 
