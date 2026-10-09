@@ -49,6 +49,11 @@ if page == "🏠 Home":
 	title_column, flag_column = st.columns([4, 1])
 	with title_column:
 		st.header("What does our app do?")
+		st.write(
+			"This interactive and educational web application explores published "
+			"Indigenous seasonal information for the Nyoongar region as well as "
+			"analysing and comparing the associated weather statistics."
+		)
 	with flag_column:
 		st.image(
 			"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/"
@@ -61,11 +66,6 @@ if page == "🏠 Home":
 			"Designed by Harold Thomas; vector image by Trisreed, "
 			"via Wikimedia Commons."
 		)
-	st.write(
-		"This interactive and educational web application explores published "
-		"Indigenous seasonal information for the Nyoongar region as well as "
-		"analysing and comparing the associated weather statistics."
-	)
 	st.subheader("The Noongar People")
 	map_column, text_column = st.columns(2)
 	with map_column:
