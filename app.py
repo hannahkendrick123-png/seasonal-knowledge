@@ -319,11 +319,15 @@ elif page == "🌦️ Weather":
 	else:
 		st.subheader("Comparison Across Seasons")
 		summary = seasonal_summary(weather)
+		season_colors = dict(
+			zip(sorted(summary["season"]), plt.get_cmap("tab10").colors)
+		)
+		bar_colors = summary["season"].map(season_colors)
 		st.dataframe(summary, use_container_width=True)
 
 		st.subheader("Rainy Days by Season")
 		fig2, ax2 = plt.subplots()
-		ax2.bar(summary["season"], summary["rainy_days"])
+		ax2.bar(summary["season"], summary["rainy_days"], color=bar_colors)
 		ax2.set_xlabel("Season")
 		ax2.set_ylabel("Number of Rainy Days")
 		ax2.set_title("Rainy Days by Season")
@@ -334,7 +338,7 @@ elif page == "🌦️ Weather":
 
 		st.subheader("Average Maximum Temperature by Season")
 		fig3, ax3 = plt.subplots()
-		ax3.bar(summary["season"], summary["average_max_temp"])
+		ax3.bar(summary["season"], summary["average_max_temp"], color=bar_colors)
 		ax3.set_xlabel("Season")
 		ax3.set_ylabel("Average Maximum Temperature (°C)")
 		ax3.set_title("Average Maximum Temperature by Season")
