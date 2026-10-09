@@ -8,8 +8,15 @@ APP_FILE = Path(__file__).resolve().parents[1] / "app.py"
 
 def open_seasonal_explorer():
 	app = AppTest.from_file(str(APP_FILE)).run()
-	app.sidebar.radio[0].set_value("Seasonal Explorer").run()
+	app.sidebar.radio[0].set_value("Seasonal Overview").run()
 	return app
+
+
+def test_seasonal_overview_page_title():
+	app = open_seasonal_explorer()
+
+	assert not app.exception
+	assert any(header.value == "🌿 Seasonal Overview" for header in app.header)
 
 
 def test_birak_displays_image_with_attribution():

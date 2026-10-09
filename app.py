@@ -26,7 +26,7 @@ except Exception as error:
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
 	"Choose a page:",
-	["Home", "Seasonal Explorer", "Weather Analysis", "Select a date"]
+	["Home", "Seasonal Overview", "Weather Analysis", "Select a Date"]
 )
 
 if page == "Home":
@@ -58,7 +58,7 @@ if page == "Home":
 	st.write(f"Number of weather records: {len(weather)}")
 	st.write(f"Number of seasonal categories: {weather['season'].nunique()}")
 
-elif page == "Seasonal Explorer":
+elif page == "Seasonal Overview":
 	st.markdown(
 		"""
 		<style>
@@ -69,7 +69,7 @@ elif page == "Seasonal Explorer":
 		""",
 		unsafe_allow_html=True,
 	)
-	st.header("🌿 Seasonal Explorer")
+	st.header("🌿 Seasonal Overview")
 	st.write("Select a season to view published information associated with that seasonal period.")
 	selected_season = st.selectbox("Choose a season:", season_info["season"].tolist())
 	selected = season_info[season_info["season"] == selected_season].iloc[0]
@@ -159,7 +159,7 @@ elif page == "Seasonal Explorer":
 		)
 	st.caption(f"Source: {selected['source']}")
 
-elif page == "Select a date":
+elif page == "Select a Date":
 	st.markdown(
 		"""
 		<style>
@@ -170,7 +170,7 @@ elif page == "Select a date":
 		""",
 		unsafe_allow_html=True,
 	)
-	st.header("Select a date")
+	st.header("Select a Date")
 	st.write("Choose a date range to explore the weather observations in that period.")
 
 	available_start = weather["date"].min().date()
