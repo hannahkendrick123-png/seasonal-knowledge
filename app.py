@@ -90,7 +90,7 @@ if page == "🏠 Home":
 	)
 	st.subheader("Dataset information")
 	st.markdown(
-		"All our data was sourced from [https://www.bom.gov.au/]"
+		"All of our data was from [https://www.bom.gov.au/]"
 		"(https://www.bom.gov.au/)"
 	)
 	st.write(f"Number of weather records: {len(weather)}")

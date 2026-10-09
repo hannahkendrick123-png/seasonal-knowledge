@@ -12,7 +12,7 @@ def test_home_displays_noongar_map_with_attribution():
 	assert not app.exception
 	assert any(header.value == "What does our app do?" for header in app.header)
 	assert any(
-		"All our data was sourced from" in element.value
+		"All of our data was from" in element.value
 		and "https://www.bom.gov.au/" in element.value
 		for element in app.markdown
 	)
