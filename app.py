@@ -331,12 +331,22 @@ elif page == "🌦️ Weather":
 			zip(sorted(summary["season"]), season_palette)
 		)
 		bar_colors = summary["season"].map(season_colors)
-		styled_summary = summary.style.apply(
+		display_summary = summary.rename(
+			columns={
+				"season": "Season",
+				"average_max_temp": "Average max. temp. (°C)",
+				"average_min_temp": "Average min. temp. (°C)",
+				"total_rainfall": "Total rainfall (mm)",
+				"average_rainfall": "Average rainfall (mm)",
+				"rainy_days": "Total rainy days",
+			}
+		)
+		styled_summary = display_summary.style.apply(
 			lambda row: [
-				f"background-color: {season_colors[row['season']]}; color: white"
+				f"background-color: {season_colors[row['Season']]}; color: white"
 			] * len(row),
 			axis=1,
-		)
+		).set_properties(**{"font-size": "12pt", "font-weight": "bold"})
 		st.dataframe(styled_summary, use_container_width=True)
 
 		st.subheader("Rainy Days by Season")

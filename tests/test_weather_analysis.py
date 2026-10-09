@@ -40,6 +40,14 @@ def test_comparison_subpage_shows_comparative_graph_sections():
 		for header in app.subheader
 	)
 	assert len(app.get("dataframe")) == 1
+	assert list(app.get("dataframe")[0].value.columns) == [
+		"Season",
+		"Average max. temp. (°C)",
+		"Average min. temp. (°C)",
+		"Total rainfall (mm)",
+		"Average rainfall (mm)",
+		"Total rainy days",
+	]
 	assert len(app.metric) == 0
 	assert not any(
 		header.value == "Daily Maximum Temperature"
