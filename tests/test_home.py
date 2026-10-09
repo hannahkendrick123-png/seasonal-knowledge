@@ -18,7 +18,8 @@ def test_home_displays_noongar_map_with_attribution():
 	)
 	images = app.get("image")
 	assert len(images) == 2
-	assert "Australian_Aboriginal_Flag" in images[0].value[0]
+	assert "Noongar1.jpg" in images[0].value[0]
+	assert "Australian_Aboriginal_Flag" in images[1].value[0]
 	assert any(header.value == "The Noongar People" for header in app.subheader)
 	assert any(
 		"the Perth Area being the Whadjuk group. The Noongar people follow a yearly "
