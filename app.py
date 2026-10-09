@@ -108,9 +108,9 @@ elif page == "🌼 Seasonal Overview":
 	selected_season = st.selectbox("Choose a season:", season_info["season"].tolist())
 	selected = season_info[season_info["season"] == selected_season].iloc[0]
 	st.subheader(selected["season"])
-	st.write("Typical period:")
+	st.markdown("**Typical period:**")
 	st.write(selected["period"])
-	st.write("Environmental indicators:")
+	st.markdown("**Environmental indicators:**")
 	st.write(selected["environmental_signs"])
 	if selected_season == "Birak":
 		st.image(
