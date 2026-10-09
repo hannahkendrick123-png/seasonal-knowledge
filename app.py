@@ -46,7 +46,7 @@ if page == "🏠 Home":
 		""",
 		unsafe_allow_html=True,
 	)
-	st.header("Explore seasonal knowledge and weather patterns")
+	st.header("What does our app do?")
 	st.write(
 		"This interactive and educational web application explores published "
 		"Indigenous seasonal information for the Nyoongar region as well as "

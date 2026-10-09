@@ -10,6 +10,7 @@ def test_home_displays_noongar_map_with_attribution():
 	app = AppTest.from_file(str(APP_FILE)).run()
 
 	assert not app.exception
+	assert any(header.value == "What does our app do?" for header in app.header)
 	assert len(app.get("image")) == 1
 	assert any(header.value == "The Noongar People" for header in app.subheader)
 	assert any(
