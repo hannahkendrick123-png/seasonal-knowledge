@@ -48,8 +48,9 @@ if page == "🏠 Home":
 	)
 	st.header("Explore seasonal knowledge and weather patterns")
 	st.write(
-		"This interactive application explores published Indigenous "
-		"seasonal information and investigates associated weather observations."
+		"This interactive and educational web application explores published "
+		"Indigenous seasonal information for the Nyoongar region as well as "
+		"analysing and comparing the associated weather statistics."
 	)
 	st.subheader("The Noongar People")
 	map_column, text_column = st.columns(2)
