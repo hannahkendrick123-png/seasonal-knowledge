@@ -46,7 +46,21 @@ if page == "🏠 Home":
 		""",
 		unsafe_allow_html=True,
 	)
-	st.header("What does our app do?")
+	title_column, flag_column = st.columns([4, 1])
+	with title_column:
+		st.header("What does our app do?")
+	with flag_column:
+		st.image(
+			"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/"
+			"Australian_Aboriginal_Flag.svg/500px-Australian_Aboriginal_Flag.svg.png"
+			"?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+			caption="Australian Aboriginal Flag",
+			width=180,
+		)
+		st.caption(
+			"Designed by Harold Thomas; vector image by Trisreed, "
+			"via Wikimedia Commons."
+		)
 	st.write(
 		"This interactive and educational web application explores published "
 		"Indigenous seasonal information for the Nyoongar region as well as "
@@ -68,17 +82,6 @@ if page == "🏠 Home":
 			"[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)."
 		)
 	with text_column:
-		st.image(
-			"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/"
-			"Australian_Aboriginal_Flag.svg/500px-Australian_Aboriginal_Flag.svg.png"
-			"?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
-			caption="Australian Aboriginal Flag, designed by Harold Thomas",
-			width=250,
-		)
-		st.caption(
-			"Flag artwork by Harold Thomas; vector image by Trisreed, "
-			"via Wikimedia Commons."
-		)
 		with st.container(key="noongar-info-panel"):
 			st.write(
 				"The Noongar region covers the entire south-west corner of "
