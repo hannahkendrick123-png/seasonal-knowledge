@@ -10,6 +10,7 @@ def test_home_displays_noongar_map_with_attribution():
 	app = AppTest.from_file(str(APP_FILE)).run()
 
 	assert not app.exception
+	assert any(title.value == "🌿 Noongar Seasonal Calendar" for title in app.title)
 	assert any(header.value == "What does our app do?" for header in app.header)
 	assert any(
 		"All of our data was sourced from" in element.value

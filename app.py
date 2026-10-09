@@ -8,12 +8,12 @@ from analysis import calculate_season_statistics, seasonal_summary
 
 
 st.set_page_config(
-	page_title="Seasonal Knowledge Explorer",
+	page_title="Noongar Seasonal Calendar",
 	page_icon="🌿",
 	layout="wide"
 )
 
-st.title("🌿 Seasonal Knowledge Explorer")
+st.title("🌿 Noongar Seasonal Calendar")
 
 try:
 	weather = load_weather_data()
