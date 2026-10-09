@@ -319,11 +319,25 @@ elif page == "🌦️ Weather":
 	else:
 		st.subheader("Comparison Across Seasons")
 		summary = seasonal_summary(weather)
+		season_palette = [
+			"#1f4e79",
+			"#7f3c8d",
+			"#116530",
+			"#a23b00",
+			"#006d77",
+			"#8b1e3f",
+		]
 		season_colors = dict(
-			zip(sorted(summary["season"]), plt.get_cmap("tab10").colors)
+			zip(sorted(summary["season"]), season_palette)
 		)
 		bar_colors = summary["season"].map(season_colors)
-		st.dataframe(summary, use_container_width=True)
+		styled_summary = summary.style.apply(
+			lambda row: [
+				f"background-color: {season_colors[row['season']]}; color: white"
+			] * len(row),
+			axis=1,
+		)
+		st.dataframe(styled_summary, use_container_width=True)
 
 		st.subheader("Rainy Days by Season")
 		fig2, ax2 = plt.subplots()
