@@ -34,7 +34,7 @@ if page == "Home":
 		"""
 		<style>
 		.stApp {
-			background-color: #b4d9b7;
+			background-color: #a4baa6;
 		}
 		</style>
 		""",
@@ -59,6 +59,16 @@ if page == "Home":
 	st.write(f"Number of seasonal categories: {weather['season'].nunique()}")
 
 elif page == "Seasonal Explorer":
+	st.markdown(
+		"""
+		<style>
+		.stApp {
+			background-color: #a4bab9;
+		}
+		</style>
+		""",
+		unsafe_allow_html=True,
+	)
 	st.header("🌿 Seasonal Explorer")
 	st.write("Select a season to view published information associated with that seasonal period.")
 	selected_season = st.selectbox("Choose a season:", season_info["season"].tolist())
@@ -71,6 +81,16 @@ elif page == "Seasonal Explorer":
 	st.caption(f"Source: {selected['source']}")
 
 elif page == "Select a date":
+	st.markdown(
+		"""
+		<style>
+		.stApp {
+			background-color: #d1c290;
+		}
+		</style>
+		""",
+		unsafe_allow_html=True,
+	)
 	st.header("Select a date")
 	st.write("Choose a date range to explore the weather observations in that period.")
 
@@ -137,6 +157,16 @@ elif page == "Select a date":
 	st.dataframe(summary, use_container_width=True)
 
 elif page == "Weather Analysis":
+	st.markdown(
+		"""
+		<style>
+		.stApp {
+			background-color: #c2a7a7;
+		}
+		</style>
+		""",
+		unsafe_allow_html=True,
+	)
 	st.header("📊 Weather Analysis")
 	selected_season = st.selectbox("Choose a season:", sorted(weather["season"].unique()))
 	statistics = calculate_season_statistics(weather, selected_season)
