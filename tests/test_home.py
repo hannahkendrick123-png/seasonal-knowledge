@@ -16,7 +16,9 @@ def test_home_displays_noongar_map_with_attribution():
 		and "https://www.bom.gov.au/" in element.value
 		for element in app.markdown
 	)
-	assert len(app.get("image")) == 1
+	images = app.get("image")
+	assert len(images) == 2
+	assert "Australian_Aboriginal_Flag" in images[0].value[0]
 	assert any(header.value == "The Noongar People" for header in app.subheader)
 	assert any(
 		"the Perth Area being the Whadjuk group. The Noongar people follow a yearly "
