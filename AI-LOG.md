@@ -75,3 +75,98 @@ How I tested it:
 - Executed the automated test suite locally.
 - Confirmed the tests passed for the main scenarios and highlighted any failing assumptions.
 - Used the results to refine the code and improve reliability.
+
+## Entry 4
+Date: 9/10/26
+Tool: VS Code Copilot
+Prompt: Suggest ways to expand the app using our current data set.
+
+Yes. With the existing data, you can make the app more interactive and insightful without adding datasets. You have roughly a year of daily weather observations (`weather.csv`) and descriptions for all six seasons (`season_info.csv`).
+
+**My top pick: a seasonal timeline.** Let users move through the year by date or season and see the corresponding seasonal description alongside daily or summarized temperature and rainfall. This connects the two datasets in a useful way without implying that the weather data validates the cultural knowledge.
+
+Other good options:
+- **Rainfall and temperature calendar:** Use a month-by-month heatmap or timeline to make changes across the year easier to spot.
+- **Custom date range:** Let users select dates and see summary statistics and charts for that period, alongside the seasons it covers.
+- **Season comparison cards:** Present each season’s description, typical period, average temperatures, rainfall, and rainy days together.
+- **Data explorer:** Add a table users can filter by date or season and download as CSV.
+- **Season transition view:** Highlight the changes between consecutive seasons in the observations, while presenting them as weather patterns—not as cultural indicators.
+
+Because the current data covers only one location and one year, comparisons between years or places would need more data. But a timeline or date-range explorer is a practical next step using what you already have.
+
+## Entry 5
+Date: 9/10/26
+Tool: VS Code Copilot
+Prompt: Can you make another page titled 'Select a date' where you add the custom date range idea.
+
+I’ll move the date-range controls and filtered analysis into a dedicated **Select a date** page, and leave **Weather Analysis** with its original all-data behavior.
+
+Edit 
+
+Ran terminal command: git --no-pager diff --check && git --no-pager diff -- app.py
+
+Running tests...
+
+## Entry 6
+Date: 9/10/26
+Tool: VS Code Copilot
+Prompt: Please change the seasonal explorere tab background colour to #a4bab9.
+
+I’ll add the requested color to Seasonal Explorer only, preserving the Home background.
+
+Read , lines 30 to 90
+Completed with input: {
+  "path": "/Users/cassiemcallen/Documents/cits1501/Group_Project/seasonal-knowledge/app.py",
+  "view_range": [
+    30,
+    90
+  ]
+}
+
+Edit 
+
+Ran terminal command: git --no-pager diff --check
+
+Set the Seasonal Explorer background to **`#a4bab9`**. The Home page remains **`#b4d9b7`**. Whitespace validation passed.
+
+## Entry 7
+Date: 9/10/26
+Tool: VS Code Copilot
+Prompt: Can you please add this image (https://www.waitoc.com/fast-find/latest-news/birak-season-young) underneath the general overview when the Birak season is selected in the seasonal explorer tab.
+
+I’ll verify the Wikimedia image’s attribution/license details, then add it beneath the Birak overview with an appropriate source credit.
+
+Fetched [https://commons.wikimedia.org/wiki/File:Christmas_tree_02_gnangarra.jpg](https://commons.wikimedia.org/wiki/File:Christmas_tree_02_gnangarra.jpg)
+Completed with input: {"url":"https://commons.wikimedia.org/wiki/File:Christmas_tree_02_gnangarra.jpg"}
+
+Read , lines 45 to 90
+Completed with input: {
+  "path": "/Users/cassiemcallen/Documents/cits1501/Group_Project/seasonal-knowledge/app.py",
+  "view_range": [
+    45,
+    90
+  ]
+}
+
+Ran terminal command: git status --short
+
+Fetched [https://commons.wikimedia.org/w/api.php?action=query&titles=File%3AChristmas_...](https://commons.wikimedia.org/w/api.php?action=query&titles=File%3AChristmas_tree_02_gnangarra.jpg&prop=imageinfo&iiprop=extmetadata%7Curl&iiurlwidth=1200&format=json)
+Completed with input: {"url":"https://commons.wikimedia.org/w/api.php?action=query&titles=File%3AChristmas_tree_02_gnangarra.jpg&prop=imageinfo&iiprop=extmetadata%7Curl&iiurlwidth=1200&format=json"}
+
+Edit 
+
+Ran terminal command: /usr/local/bin/python3 -c "from streamlit.testing.v1 import AppTest; app=AppTest.from_file('app.py').run(); app.sidebar.radio[0].set_value('Seasonal Explorer').run(); print('images:', len(app.get('imgs')), 'exceptions:', len(app.exception)); print('caption:', [e.value for e in app.caption])"
+
+Ran terminal command: git --no-pager diff --check && git --no-pager diff -- app.py
+
+Ran terminal command: /usr/local/bin/python3 -c "from streamlit.testing.v1 import AppTest; app=AppTest.from_file('app.py').run(); app.sidebar.radio[0].set_value('Seasonal Explorer').run(); print([(s.label, s.value) for s in app.selectbox]); print([(e.type, getattr(e, 'value', None)) for e in app])"
+
+Edit 
+
+Ran terminal command: /usr/local/bin/python3 -m pytest -q tests/test_seasonal_explorer.py tests/test_date_picker.py
+
+Ran terminal command: git --no-pager diff --check && git status --short
+
+Added the Wikimedia Commons Christmas tree image beneath the environmental overview when Birak is selected in `app.py`. The image includes its caption and Gnangarra attribution with a link to its **CC BY 2.5 AU** license.
+
+Added tests in `test_seasonal_explorer.py` to verify the image appears for Birak only. All 5 seasonal explorer and date-picker tests passed.
