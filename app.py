@@ -30,6 +30,16 @@ page = st.sidebar.radio(
 )
 
 if page == "Home":
+	st.markdown(
+		"""
+		<style>
+		.stApp {
+			background-color: #b4d9b7;
+		}
+		</style>
+		""",
+		unsafe_allow_html=True,
+	)
 	st.header("Explore seasonal knowledge and weather patterns")
 	st.write(
 		"This interactive application explores published Indigenous "
