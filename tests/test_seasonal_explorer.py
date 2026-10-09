@@ -16,7 +16,7 @@ def test_seasonal_overview_page_title():
 	app = open_seasonal_explorer()
 
 	assert not app.exception
-	assert any(header.value == "🌿 Seasonal Overview" for header in app.header)
+	assert any(header.value == "🌼 Seasonal Overview" for header in app.header)
 
 
 def test_birak_displays_image_with_attribution():

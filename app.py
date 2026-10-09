@@ -81,7 +81,7 @@ elif page == "Seasonal Overview":
 		""",
 		unsafe_allow_html=True,
 	)
-	st.header("🌿 Seasonal Overview")
+	st.header("🌼 Seasonal Overview")
 	st.write("Select a season to view published information associated with that seasonal period.")
 	selected_season = st.selectbox("Choose a season:", season_info["season"].tolist())
 	selected = season_info[season_info["season"] == selected_season].iloc[0]
