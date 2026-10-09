@@ -104,6 +104,59 @@ elif page == "Seasonal Explorer":
 			"licensed under [CC BY-SA 4.0]"
 			"(https://creativecommons.org/licenses/by-sa/4.0/)."
 		)
+	elif selected_season == "Djeran":
+		st.image(
+			"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/"
+			"Corymbia_ficifolia_Flowers.jpg/1280px-Corymbia_ficifolia_Flowers.jpg"
+			"?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+			caption="Flowering Corymbia ficifolia",
+		)
+		st.markdown(
+			"Image by [JJ Harrison](https://commons.wikimedia.org/wiki/"
+			"File:Corymbia_ficifolia_Flowers.jpg), via Wikimedia Commons, "
+			"licensed under [CC BY-SA 3.0]"
+			"(https://creativecommons.org/licenses/by-sa/3.0/)."
+		)
+	elif selected_season == "Makuru":
+		st.image(
+			"https://upload.wikimedia.org/wikipedia/commons/0/05/"
+			"Dianella_revoluta.jpg?utm_source=en.wikipedia.org"
+			"&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+			caption="Dianella revoluta (Black-anther Flax-lily)",
+		)
+		st.markdown(
+			"Image by [Sam Genas](https://commons.wikimedia.org/wiki/"
+			"File:Dianella_revoluta.jpg), via Wikimedia Commons, "
+			"licensed under [CC BY-SA 3.0]"
+			"(https://creativecommons.org/licenses/by-sa/3.0/)."
+		)
+	elif selected_season == "Djilba":
+		st.image(
+			"https://upload.wikimedia.org/wikipedia/commons/9/9b/"
+			"Acacia_pycnantha_Golden_Wattle.jpg?utm_source=en.wikipedia.org"
+			"&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+			caption="Acacia pycnantha (Golden Wattle)",
+		)
+		st.markdown(
+			"Image by [Melburnian](https://commons.wikimedia.org/wiki/"
+			"File:Acacia_pycnantha_Golden_Wattle.jpg), via Wikimedia Commons, "
+			"licensed under [CC BY-SA 3.0]"
+			"(https://creativecommons.org/licenses/by-sa/3.0/)."
+		)
+	elif selected_season == "Kambarang":
+		st.image(
+			"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/"
+			"Anigozanthos_manglesii_gnangarra-1007.jpg/3840px-"
+			"Anigozanthos_manglesii_gnangarra-1007.jpg"
+			"?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+			caption="Anigozanthos manglesii (Red and Green Kangaroo Paw)",
+		)
+		st.markdown(
+			"Image by [Gnangarra](https://commons.wikimedia.org/wiki/"
+			"File:Anigozanthos_manglesii_gnangarra-1007.jpg), "
+			"via Wikimedia Commons, licensed under [CC BY 2.5 AU]"
+			"(https://creativecommons.org/licenses/by/2.5/au/deed.en)."
+		)
 	st.caption(f"Source: {selected['source']}")
 
 elif page == "Select a date":

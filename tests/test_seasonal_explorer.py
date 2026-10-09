@@ -20,7 +20,6 @@ def test_birak_displays_image_with_attribution():
 	assert any("Gnangarra" in element.value for element in app.markdown)
 	assert any("CC BY 2.5 AU" in element.value for element in app.markdown)
 
-
 def test_bunuru_displays_image_with_attribution():
 	app = open_seasonal_explorer()
 	app.selectbox[0].set_value("Bunuru").run()
@@ -31,9 +30,41 @@ def test_bunuru_displays_image_with_attribution():
 	assert any("CC BY-SA 4.0" in element.value for element in app.markdown)
 
 
-def test_other_seasons_do_not_display_birak_image():
+def test_djeran_displays_image_with_attribution():
 	app = open_seasonal_explorer()
 	app.selectbox[0].set_value("Djeran").run()
 
 	assert not app.exception
-	assert len(app.get("image")) == 0
+	assert len(app.get("image")) == 1
+	assert any("JJ Harrison" in element.value for element in app.markdown)
+	assert any("CC BY-SA 3.0" in element.value for element in app.markdown)
+
+
+def test_makuru_displays_image_with_attribution():
+	app = open_seasonal_explorer()
+	app.selectbox[0].set_value("Makuru").run()
+
+	assert not app.exception
+	assert len(app.get("image")) == 1
+	assert any("Sam Genas" in element.value for element in app.markdown)
+	assert any("CC BY-SA 3.0" in element.value for element in app.markdown)
+
+
+def test_djilba_displays_image_with_attribution():
+	app = open_seasonal_explorer()
+	app.selectbox[0].set_value("Djilba").run()
+
+	assert not app.exception
+	assert len(app.get("image")) == 1
+	assert any("Melburnian" in element.value for element in app.markdown)
+	assert any("CC BY-SA 3.0" in element.value for element in app.markdown)
+
+
+def test_kambarang_displays_image_with_attribution():
+	app = open_seasonal_explorer()
+	app.selectbox[0].set_value("Kambarang").run()
+
+	assert not app.exception
+	assert len(app.get("image")) == 1
+	assert any("Gnangarra" in element.value for element in app.markdown)
+	assert any("CC BY 2.5 AU" in element.value for element in app.markdown)
