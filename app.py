@@ -89,6 +89,10 @@ if page == "🏠 Home":
 		"recognised published sources."
 	)
 	st.subheader("Dataset information")
+	st.markdown(
+		"All our data was sourced from [https://www.bom.gov.au/]"
+		"(https://www.bom.gov.au/)"
+	)
 	st.write(f"Number of weather records: {len(weather)}")
 	st.write(f"Number of seasonal categories: {weather['season'].nunique()}")
 
